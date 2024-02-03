@@ -1,0 +1,115 @@
+ADJACENCY MATRIX REPRESENTATION OF WEIGHTED GRAPH(UNDIRECTED GRAPH)
+
+def addNode(v):
+    global n
+    if v in nodes:
+        print(v,"is already prsent")
+    else:
+        nodes.append(v)
+        n=n+1
+    for x in graph:
+        x.append(0)
+    temp=[]
+    for i in range(n):
+        temp.append(0)
+    graph.append(temp)
+def show():
+    for i in range(n):
+        for j in range(n):
+            print(graph[i][j],end=" ")
+        print()
+def addEdge(node1,node2,weight):
+    if node1 not in nodes:
+        print(node1,"is not available")
+    elif node2 not in nodes:
+        print(node2,"is not available")
+    else:
+        i=nodes.index(node1)
+        j=nodes.index(node2)
+        graph[i][j]=weight
+        graph[j][i]=weight
+nodes=[]
+graph=[]
+n=0
+while True:
+    print()
+    print("1.Addnode \n2.Addedge \n3.show \n4.Exit ")
+    ch=int(input("enter choice:"))
+    if ch==1:
+        v=input("Enter node:")
+        addNode(v)
+    elif ch==2:
+        node1=input("enter node1:")
+        node2=input("enter node2:")
+        weight=int(input("enter weight:"))
+        addEdge(node1,node2,weight)
+    elif ch==3:
+        show()
+    elif ch==4:
+        break
+    else:
+        print("Invalid Choice") 
+        
+OUTPUT:
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:1
+Enter node:a
+
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:1
+Enter node:b
+
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:1
+Enter node:c
+
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:2
+enter node1:a
+enter node2:b
+enter weight:2
+
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:2
+enter node1:b
+enter node2:c
+enter weight:3
+
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:2
+enter node1:c
+enter node2:a
+enter weight:4
+
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:3
+0 2 4 
+2 0 3 
+4 3 0 
+
+1.Addnode 
+2.Addedge 
+3.show 
+4.Exit 
+enter choice:4
